@@ -28,4 +28,8 @@ public:
         vector<Task> loadTugas;
         ifstream file("tugas.txt");
     }
+<<<<<<< Updated upstream
+=======
+  anjay
+>>>>>>> Stashed changes
 };
