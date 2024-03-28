@@ -28,4 +28,6 @@ public:
         vector<Task> loadTugas;
         ifstream file("tugas.txt");
     }
+
+    tes tes
 };
