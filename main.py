@@ -22,3 +22,17 @@ class TaskManager:
         else:
             for idx, task in enumerate(self.tasks, 1):
                 print(f"{idx}. {task['description']} - {'Selesai' if task['done'] else 'Belum Selesai'}")
+
+    def add_task(self, description):
+        task = {"description": description, "done": False}
+        self.tasks.append(task)
+        self.save_tasks()
+        print(f"Tugas '{description}' ditambahkan.")
+
+    def mark_done(self, index):
+        if 1 <= index <= len(self.tasks):
+            self.tasks[index - 1]["done"] = True
+            self.save_tasks()
+            print(f"Tugas '{self.tasks[index - 1]['description']}' ditandai sebagai selesai.")
+        else:
+            print("Indeks tugas tidak valid.")
