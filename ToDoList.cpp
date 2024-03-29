@@ -2,7 +2,7 @@
 #include <string>
 #include <fstream>
 #include <vector>
-//nagasaki
+// nagasaki
 using namespace std;
 
 struct Task
@@ -27,5 +27,29 @@ public:
     {
         vector<Task> loadTugas;
         ifstream file("tugas.txt");
+
+        if (file.is_open())
+        {
+            string desc;
+            bool status;
+            while (file >> desc >> status)
+            {
+                loadTugas.push_back({desc, status});
+            }
+            file.close();
+        }
+        return loadTugas;
+    }
+    void simpanTugas()
+    {
+        ofstream file("tugas.txt");
+        if (file.is_open())
+        {
+            for (const auto &task : tugas)
+            {
+                file << tugas.description << " " << tugas.done << endl;
+            }
+            file.close();
+        }
     }
 };
