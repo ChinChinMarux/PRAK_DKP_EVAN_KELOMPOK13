@@ -8,6 +8,7 @@ class TaskManager:
         try:
             with open("tugas.json", "r") as file:
                 tasks = json.load(file)
+        except FileNotFoundError:
             tasks = []
         return tasks
 
